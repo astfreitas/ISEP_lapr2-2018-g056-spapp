@@ -9,7 +9,6 @@ import model.Company;
 
 public class ApplicationSP {
     
-    //instance of conpany
     private final Company company;
     
     public ApplicationSP() {
@@ -18,10 +17,10 @@ public class ApplicationSP {
         bootstrap(props);
     }
     
-    
-    
-    
-    
+    /**
+     * Method that initiates the application
+     * @param props 
+     */
     private void bootstrap(Properties props){
        
        int inportsTypeQuantity = Integer.parseInt(props.getProperty(Constants.PARAMS_NUMBER_OF_IMPORT_TYPES));
@@ -64,7 +63,7 @@ public class ApplicationSP {
         }
         catch(Exception ex)
         {
-            
+            ex.printStackTrace();
         }
         return props;
     }

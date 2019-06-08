@@ -45,5 +45,37 @@ public class ImportTypeRegistry {
     private boolean addImportType(ImportType importType) {
         return importTypes.add(importType);
     }
+
+    public ImportType getImportTypeByFilePath(String filePath) {
+        String extension = getExtensionFromFilePath(filePath);
+        return getImportTypeByExtension(extension);
+    }
+    
+    /**
+     * Method obtains file extension from file Path
+     * @param filePath
+     * @return null if the file has no extension.
+     */
+    private String getExtensionFromFilePath(String filePath) {
+        String[] fPathSections = filePath.split(".");
+        if(fPathSections.length>1) {
+            return fPathSections[fPathSections.length-1];
+        }
+        return null;
+    }
+    
+    /**
+     * Method gets an ImportType from a file extension
+     * @param extension
+     * @return instance of Import type.
+     */
+    private ImportType getImportTypeByExtension(String extension) {
+        for(ImportType it : importTypes) {
+            if(it.getImportExtention().equalsIgnoreCase(extension)) {
+                return it;
+            }
+        }
+        return null;
+    }
     
 }

@@ -1,23 +1,22 @@
 package model;
 
-import java.util.Properties;
-
-
 public class Company {
     
-    private String designation;
-    private String NIF;
-    private ImportTypeRegistry importTypeRegistry;
+    private final String designation;
+    private final String NIF;
+    private final ImportTypeRegistry importTypeRegistry;
+    private final ServiceOrderRegistry serviceOrderRegistry;
     
     /**
      * Constructor initializes company constructor and stores Company information
      * @param designation name of the company
-     * @param nif
+     * @param NIF
      */
     public Company(String designation, String NIF) {
         this.designation = designation;
         this.NIF = NIF;
         this.importTypeRegistry = new ImportTypeRegistry();
+        this.serviceOrderRegistry = new ServiceOrderRegistry();
     }
 
     @Override
@@ -32,5 +31,15 @@ public class Company {
     public ImportTypeRegistry getImportTypeRegistry() {
         return importTypeRegistry;
     }
+    
+    
+    /**
+     * Method retuns instance of serviceOrderRegistry, the location where the company handles service order's logic
+     * @return instance of ServiceOrderRegistry
+     */
+    public ServiceOrderRegistry getServiceOrderRegistry() {
+        return serviceOrderRegistry;
+    }
+
     
 }
