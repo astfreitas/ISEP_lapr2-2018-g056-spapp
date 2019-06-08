@@ -14,16 +14,25 @@ public class ApplicationSP {
     
     public ApplicationSP() {
         Properties props = getProperties();
-        company = new Company(props);
-        bootstrap();
+        company = new Company(props.getProperty(Constants.PARAMS_COMPANY_DESIGNATION), props.getProperty(Constants.PARAMS_COMPANY_NIF));
+        bootstrap(props);
     }
     
     
     
     
     
-    private void bootstrap(){
-        
+    private void bootstrap(Properties props){
+       
+       int inportsTypeQuantity = Integer.parseInt(props.getProperty(Constants.PARAMS_NUMBER_OF_IMPORT_TYPES));
+
+        for (int i = 0; i < inportsTypeQuantity; i++) {
+            String importTypeAdaptorExtension = props.getProperty(Constants.PARAMS_COMPANY_IMPORT_TYPE + "." + i + "." + Constants.PARAMS_EXTENSION);
+            String importTypeAdaptorClass = props.getProperty(Constants.PARAMS_COMPANY_IMPORT_TYPE + "." + i + "." + Constants.PARAMS_CLASS);
+            if(company.getImportTypeRegistry().registerImportType(importTypeAdaptorExtension, importTypeAdaptorClass)) {
+                System.out.println("import type : " + importTypeAdaptorExtension + " created with success.");
+            }
+        } 
     }
     
     /**
@@ -34,7 +43,10 @@ public class ApplicationSP {
         return company;
     }
     
-    
+    /**
+     * Method returns properties of the configuration file
+     * @return properties of the configuration file
+     */
     private Properties getProperties()
     {
         Properties props = new Properties();
@@ -43,7 +55,7 @@ public class ApplicationSP {
         props.setProperty(Constants.PARAMS_COMPANY_DESIGNATION, "Default Lda.");
         props.setProperty(Constants.PARAMS_COMPANY_NIF, "Default NIF");
         
-        // Lê as propriedades e valores definidas 
+        // reads properties and values from the config file
         try
         {
             InputStream in = new FileInputStream(Constants.PARAMS_FILE);
