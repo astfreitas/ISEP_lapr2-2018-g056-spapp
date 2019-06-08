@@ -4,7 +4,7 @@ import Utils.Constants;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Properties;
-import model.Company;
+import lapr2.spapplication.model.Company;
 
 
 public class ApplicationSP {

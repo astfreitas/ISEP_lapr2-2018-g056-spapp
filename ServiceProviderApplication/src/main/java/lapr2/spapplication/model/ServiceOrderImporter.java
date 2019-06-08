@@ -1,4 +1,4 @@
-package model;
+package lapr2.spapplication.model;
 
 import java.util.List;
 

@@ -1,10 +1,10 @@
 package lapr2.spapplication.controller;
 
-import model.Company;
-import model.ImportType;
-import model.ImportTypeRegistry;
-import model.ServiceOrderImporter;
-import model.ServiceOrderRegistry;
+import lapr2.spapplication.model.Company;
+import lapr2.spapplication.model.ImportType;
+import lapr2.spapplication.model.ImportTypeRegistry;
+import lapr2.spapplication.model.ServiceOrderImporter;
+import lapr2.spapplication.model.ServiceOrderRegistry;
 
 
 public class ImportServiceOrdersController {
