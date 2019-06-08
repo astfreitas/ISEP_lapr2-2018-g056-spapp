@@ -12,7 +12,7 @@ public class ServiceOrderRegistry {
     }
 
     /**
-     * 
+     * Method Imports data from a file.
      * @param filePath
      * @param serviceOrderImporter 
      */
@@ -59,6 +59,22 @@ public class ServiceOrderRegistry {
      */
     public List<ServiceOrder> getServiceOrdersByParameter(){
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
+    /**
+     * Method obtains service orders of a given client by email
+     * @param email
+     * @return list of service orders
+     */
+    public List<ServiceOrder> getServiceOrdersByClientEmail(String email) {
+        List<ServiceOrder> clientOders = new ArrayList();
+        for(ServiceOrder serviceOrder : serviceOrders) {
+            if(serviceOrder.getServiceRequest().getClient().hasEmail(email)) {
+                clientOders.add(serviceOrder);
+            }
+        }
+        return clientOders;
     }
     
 
