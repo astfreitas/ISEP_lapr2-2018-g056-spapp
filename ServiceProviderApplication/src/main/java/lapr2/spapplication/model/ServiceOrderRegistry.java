@@ -44,4 +44,22 @@ public class ServiceOrderRegistry {
         return serviceOrders.add(serOrder);
     }
 
+    /**
+     * Returns ServiceOrders List
+     * @return ServiceOrder list
+     */
+    public List<ServiceOrder> getServiceOrders() {
+        return serviceOrders;
+    }
+    
+    /**
+     * Returns ServiceOrder sorted by a given parameter
+     * ToDo: Check design vs implementation - sort by List colletion?
+     * @return ServiceOrder List
+     */
+    public List<ServiceOrder> getServiceOrdersByParameter(){
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+
 }
