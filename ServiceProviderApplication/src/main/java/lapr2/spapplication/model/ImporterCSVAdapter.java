@@ -3,7 +3,7 @@ package lapr2.spapplication.model;
 import java.util.List;
 
 
-public class ImporterXLSXAdapter implements ServiceOrderImporter {
+public class ImporterCSVAdapter implements ServiceOrderImporter {
 
     @Override
     public List<ServiceOrder> importOrders(String filePath) {
