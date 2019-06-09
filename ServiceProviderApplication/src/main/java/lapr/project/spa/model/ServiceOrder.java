@@ -1,31 +1,42 @@
 package lapr.project.spa.model;
 
+import com.opencsv.bean.CsvBindByPosition;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 
 public class ServiceOrder {
+    @CsvBindByPosition(position = 0)
     private final String name;
+    @CsvBindByPosition(position = 1)
     private final String email;
+    @CsvBindByPosition(position = 2)
+    private final String schedPrefDayStr;
     private final LocalDate schedPrefDay;
+    @CsvBindByPosition(position = 3)
+    private final String schePrefTimeStr;
     private final LocalTime schePrefTime;
+    @CsvBindByPosition(position = 4)
     private final String category;
+    @CsvBindByPosition(position = 5)
     private final String service;
     
     /**
-     * Constructor ServiceOrder C
-     * @param name name of the client
-     * @param email email of the client
-     * @param schedPrefDay date preference
-     * @param schePrefTime time preference
-     * @param category service category
-     * @param service service
+     * Constructor ServiceOrder
+     * @param name
+     * @param email
+     * @param schedPrefDayStr
+     * @param schePrefTimeStr
+     * @param category
+     * @param service 
      */
-    public ServiceOrder(String name, String email, String schedPrefDay, String schePrefTime, String category, String service) {
+    public ServiceOrder(String name, String email, String schedPrefDayStr, String schePrefTimeStr, String category, String service) {
         this.name = name;
         this.email = email;
-        this.schedPrefDay = LocalDate.parse(schedPrefDay);
-        this.schePrefTime = LocalTime.parse(schePrefTime);
+        this.schedPrefDayStr = schedPrefDayStr;
+        this.schePrefTimeStr = schePrefTimeStr;
+        this.schedPrefDay = LocalDate.now();//parse(schedPrefDay);
+        this.schePrefTime = LocalTime.now();//parse(schePrefTime);
         this.category = category;
         this.service = service;
     }
@@ -63,6 +74,10 @@ public class ServiceOrder {
         return schedPrefDay;
     }
     
+    public String getSchedPrefDayStr() {
+        return schedPrefDay.toString();
+    }
+    
     /**
      * Method returns the time when the service occurs.
      * @return instance of LocalTime when then date occurs.
@@ -70,7 +85,12 @@ public class ServiceOrder {
     public LocalTime getSchePrefTime() {
         return schePrefTime;
     }
-
+    
+    
+    public String getSchePrefTimeStr() {
+        return schedPrefDay.toString();
+    }
+    
     /**
      * Method returns the order's category
      * @return instance of the order's category
@@ -85,6 +105,11 @@ public class ServiceOrder {
      */
     public String getService() {
         return service;
+    }
+
+    @Override
+    public String toString() {
+        return "ServiceOrder{" + "name=" + name + ", email=" + email + ", schedPrefDay=" + schedPrefDay + ", schePrefTime=" + schePrefTime + ", category=" + category + ", service=" + service + '}';
     }
     
 }

@@ -18,7 +18,15 @@
         <!-- Used as the 'Vendor' for JNLP generation -->
         <name>Service Provider Application</name>
     </organization>
-
+    
+    <dependencies>
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>4.0</version>
+        </dependency>
+    </dependencies>
+    
     <build>
         <plugins>
             <plugin>
