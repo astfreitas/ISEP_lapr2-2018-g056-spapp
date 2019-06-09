@@ -2,10 +2,13 @@ package lapr.project.spa.model;
 
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
+import com.opencsv.bean.CsvBindByPosition;
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -14,8 +17,6 @@ import lapr.project.spa.utils.Constants;
 
 
 public class ImporterCSVAdapter implements ServiceOrderImporter {
-    
-    private static int NUMBER_OF_PARAMS = 6;
     
     /**
      * Method Imports Orders from CSV file inspired from : https://www.callicoder.com/java-read-write-csv-file-opencsv/
@@ -31,9 +32,13 @@ public class ImporterCSVAdapter implements ServiceOrderImporter {
         ) {
             String[] nextRecord;
             while ((nextRecord = csvReader.readNext()) != null) {
-                
-                if(nextRecord.length==NUMBER_OF_PARAMS) {
-                    ServiceOrder iServOrd = new ServiceOrder(nextRecord[0], nextRecord[1], nextRecord[2], nextRecord[3], nextRecord[4], nextRecord[5]); 
+                if(valid(nextRecord)) {
+                    ServiceOrder iServOrd = new ServiceOrder(nextRecord[Constants.IMPORT_NAME], 
+                            nextRecord[Constants.IMPORT_EMAIL], 
+                            nextRecord[Constants.IMPORT_SCHEDULE_PREFERENCE_DAY], 
+                            nextRecord[Constants.IMPORT_SCHEDULE_PREFERENCE_TIME], 
+                            nextRecord[Constants.IMPORT_CATEGORY], 
+                            nextRecord[Constants.IMPORT_SERVICE]); 
                     System.out.println(iServOrd);
                     importedServiceOrders.add(iServOrd);
                 }
@@ -58,7 +63,5 @@ public class ImporterCSVAdapter implements ServiceOrderImporter {
         return "CSV Adapter";
     }
 
-    
-    
     
 }
