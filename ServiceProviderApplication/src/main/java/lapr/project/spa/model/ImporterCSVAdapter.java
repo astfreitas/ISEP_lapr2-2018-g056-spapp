@@ -17,7 +17,7 @@ public class ImporterCSVAdapter implements ServiceOrderImporter {
     private static int NUMBER_OF_PARAMS = 6;
     
     /**
-     * Method Imports Orders from CSV file inspired in : https://www.callicoder.com/java-read-write-csv-file-opencsv/
+     * Method Imports Orders from CSV file inspired from : https://www.callicoder.com/java-read-write-csv-file-opencsv/
      * @param filePath
      * @return List of ServiceOrders
      */
@@ -43,7 +43,15 @@ public class ImporterCSVAdapter implements ServiceOrderImporter {
             return null;
         }
     }
-
+    /**
+     * Verifies if the length of the Array String is valid
+     * @param row
+     * @return true if valid
+     */
+    public boolean valid(String[] row) {
+        return row.length==NUMBER_OF_PARAMS;
+    }
+    
     @Override
     public String toString() {
         return "CSV Adapter";
