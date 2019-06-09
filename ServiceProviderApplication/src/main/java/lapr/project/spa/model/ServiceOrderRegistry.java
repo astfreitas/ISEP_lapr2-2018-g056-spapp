@@ -70,7 +70,7 @@ public class ServiceOrderRegistry {
     public List<ServiceOrder> getServiceOrdersByClientEmail(String email) {
         List<ServiceOrder> clientOders = new ArrayList();
         for(ServiceOrder serviceOrder : serviceOrders) {
-            if(serviceOrder.getServiceRequest().getClient().hasEmail(email)) {
+            if(serviceOrder.hasEmail(email)) {
                 clientOders.add(serviceOrder);
             }
         }

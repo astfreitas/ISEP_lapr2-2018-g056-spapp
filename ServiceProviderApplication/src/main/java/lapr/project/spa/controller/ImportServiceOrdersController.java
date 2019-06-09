@@ -23,12 +23,13 @@ public class ImportServiceOrdersController {
         
         ImportType importType = importTypeRegistry.getImportTypeByFilePath(filePath);
         
-        ServiceOrderImporter serviceOrderImporter = importType.create();
-        
-        ServiceOrderRegistry serviceOrderRegistry = company.getServiceOrderRegistry();
-        
-        serviceOrderRegistry.importData(filePath, serviceOrderImporter);
-        
+        if(importType!=null) {
+            ServiceOrderImporter serviceOrderImporter = importType.create();
+            ServiceOrderRegistry serviceOrderRegistry = company.getServiceOrderRegistry();
+            serviceOrderRegistry.importData(filePath, serviceOrderImporter);
+        } else {
+             throw new IllegalArgumentException("Import type not Supported.");
+        }
         
     }
     

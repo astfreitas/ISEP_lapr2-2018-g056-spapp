@@ -1,137 +1,90 @@
 package lapr.project.spa.model;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 
 public class ServiceOrder {
+    private final String name;
+    private final String email;
+    private final LocalDate schedPrefDay;
+    private final LocalTime schePrefTime;
+    private final String category;
+    private final String service;
     
+    /**
+     * Constructor ServiceOrder C
+     * @param name name of the client
+     * @param email email of the client
+     * @param schedPrefDay date preference
+     * @param schePrefTime time preference
+     * @param category service category
+     * @param service service
+     */
+    public ServiceOrder(String name, String email, String schedPrefDay, String schePrefTime, String category, String service) {
+        this.name = name;
+        this.email = email;
+        this.schedPrefDay = LocalDate.parse(schedPrefDay);
+        this.schePrefTime = LocalTime.parse(schePrefTime);
+        this.category = category;
+        this.service = service;
+    }
     
     /**
-     * atribtes of class ServiceOrder
+     * Method hasEmail returns true if the ServiceOrder was registered with the same email.
+     * @param email
+     * @return true if it has the same email.
      */
-    private ServiceProvider servProvider;
-    private ServiceRequest servRequest;
-    private ServiceRequestDescription servRequestDesc;
-    private SchedulePreference schedPreference;
-    private String id;
-    private int orderNumber;
-    private ServiceOrderStatus status;
-
-    /**
-     * constructor of ServiceOrder with 6 parameters
-     *
-     * @param servProvider
-     * @param servRequest
-     * @param servRequestDesc
-     * @param schedPreference
-     * @param id
-     * @param status
-     */
-    public ServiceOrder(ServiceProvider servProvider, ServiceRequest servRequest, ServiceRequestDescription servRequestDesc, SchedulePreference schedPreference, String id, ServiceOrderStatus status) {
-        this.servProvider = servProvider;
-        this.servRequest = servRequest;
-        this.servRequestDesc = servRequestDesc;
-        this.schedPreference = schedPreference;
-        this.id = id;
-        this.status = status;
+    public boolean hasEmail(String email) {
+        return this.email.equalsIgnoreCase(email);
     }
 
     /**
-     * Constructor instantiates a service order with a service assignment
-     *
-     * @param serviceAssignment
+     * Method returns the client name
+     * @return client name
      */
-    public ServiceOrder(ServiceAssignment serviceAssignment) {
-        if (serviceAssignment == null) {
-            throw new IllegalArgumentException("serviceAssignment value is null");
-        }
-        this.servRequest = serviceAssignment.getServiceRequest();
-        this.servProvider = serviceAssignment.getServiceProvider();
-        this.servRequestDesc = serviceAssignment.getServiceRequestDescription();
-        this.schedPreference = serviceAssignment.getSchedulePreference();
+    public String getName() {
+        return name;
+    }
+    
+    /**
+     * Method returns the email of the client
+     * @return email of the client
+     */
+    public String getEmail() {
+        return email;
     }
 
     /**
-     * Method that sets the Order Number.
-     *
-     * @param orderNumber number associated with the Service Order.
+     * Method returns  the day when the service occurs.
+     * @return instance of LocalDate when then date occurs.
      */
-    public void setOrderNumber(int orderNumber) {
-        this.orderNumber = orderNumber;
+    public LocalDate getSchedPrefDay() {
+        return schedPrefDay;
+    }
+    
+    /**
+     * Method returns the time when the service occurs.
+     * @return instance of LocalTime when then date occurs.
+     */
+    public LocalTime getSchePrefTime() {
+        return schePrefTime;
     }
 
     /**
-     * returns the service provider associated to the service order
-     *
-     * @return service provider
+     * Method returns the order's category
+     * @return instance of the order's category
      */
-    public ServiceProvider getServiceProvider() {
-        return servProvider;
+    public String getCategory() {
+        return category;
     }
-
+    
     /**
-     * returns the service request associated to the service order
-     *
-     * @return service request
+     * Method returns the service that was executed.
+     * @return returns the service that was executed.
      */
-    public ServiceRequest getServiceRequest() {
-        return servRequest;
+    public String getService() {
+        return service;
     }
-
-    /**
-     * returns the service request description associated to the service order
-     *
-     * @return service request description
-     */
-    public ServiceRequestDescription getServiceRequestDescription() {
-        return this.servRequestDesc;
-    }
-
-    /**
-     * returns the schedule preference associated to the service order
-     *
-     * @return schedule preference
-     */
-    public SchedulePreference getSchePref() {
-        return schedPreference;
-    }
-
-    /**
-     * returns the service order id associated to the service order
-     *
-     * @return service order id
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * returns the service order status associated to the service order
-     *
-     * @return service order status
-     */
-    public ServiceOrderStatus getStatus() {
-        return status;
-
-    }
-
-//    /**
-//     * verifies if a service order has a pending state
-//     *
-//     * @param status of the service order
-//     * @return true or false
-//     */
-//    public boolean isPending(String status) {
-//        return this.status.getServOrderStatus().equalsIgnoreCase(PENDING_ORDER);
-//    }
-
-    /**
-     * Checks if the Service Order has a determined ID
-     *
-     * @param id ID to check
-     * @return true or false
-     */
-    public boolean hasId(String id) {
-        return this.id.equalsIgnoreCase(id);
-    }
-
-
+    
 }

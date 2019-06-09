@@ -48,7 +48,6 @@ public class ImportTypeRegistry {
 
     public ImportType getImportTypeByFilePath(String filePath) {
         String extension = getExtensionFromFilePath(filePath);
-        System.out.println(extension);
         return getImportTypeByExtension(extension);
     }
     
@@ -68,7 +67,7 @@ public class ImportTypeRegistry {
     /**
      * Method gets an ImportType from a file extension
      * @param extension
-     * @return instance of Import type.
+     * @return instance of Import type, null if instance was not found.
      */
     private ImportType getImportTypeByExtension(String extension) {
         for(ImportType it : importTypes) {

@@ -34,9 +34,6 @@ public class ApplicationSP {
             }
         }
         
-        ImportType ip = company.getImportTypeRegistry().getImportTypeByFilePath("asd.csv");
-        System.out.println(">" + ip);
-        
     }
 
     /**
@@ -74,9 +71,7 @@ public class ApplicationSP {
     private static ApplicationSP singleton = null;
 
     /**
-     * Method returns an instance of Service Provider Application This instance
-     * is only intantiated once Singleton Pattern
-     *
+     * Method returns an instance of Service Provider Application Singleton Pattern
      * @return instance of ApplicationSP
      */
     public static ApplicationSP getInstance() {
