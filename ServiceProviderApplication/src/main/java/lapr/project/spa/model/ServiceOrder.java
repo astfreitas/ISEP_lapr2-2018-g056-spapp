@@ -3,24 +3,27 @@ package lapr.project.spa.model;
 import com.opencsv.bean.CsvBindByPosition;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import lapr.project.spa.utils.Constants;
+
 
 
 public class ServiceOrder {
-    @CsvBindByPosition(position = 0)
+
+    @CsvBindByPosition(position = Constants.IMPORT_NAME)
     private final String name;
-    @CsvBindByPosition(position = 1)
+    @CsvBindByPosition(position = Constants.IMPORT_EMAIL)
     private final String email;
-    @CsvBindByPosition(position = 2)
+    @CsvBindByPosition(position = Constants.IMPORT_SCHEDULE_PREFERENCE_DAY)
     private final String schedPrefDayStr;
     private final LocalDate schedPrefDay;
-    @CsvBindByPosition(position = 3)
+    @CsvBindByPosition(position = Constants.IMPORT_SCHEDULE_PREFERENCE_TIME)
     private final String schePrefTimeStr;
     private final LocalTime schePrefTime;
-    @CsvBindByPosition(position = 4)
+    @CsvBindByPosition(position = Constants.IMPORT_CATEGORY)
     private final String category;
-    @CsvBindByPosition(position = 5)
+    @CsvBindByPosition(position = Constants.IMPORT_SERVICE)
     private final String service;
-    
+
     /**
      * Constructor ServiceOrder
      * @param name

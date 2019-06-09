@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import lapr.project.spa.utils.Constants;
 
 
 public class ImporterCSVAdapter implements ServiceOrderImporter {
@@ -49,7 +50,7 @@ public class ImporterCSVAdapter implements ServiceOrderImporter {
      * @return true if valid
      */
     public boolean valid(String[] row) {
-        return row.length==NUMBER_OF_PARAMS;
+        return row.length==Constants.NR_IMPORT_ATTRIBUTES;
     }
     
     @Override

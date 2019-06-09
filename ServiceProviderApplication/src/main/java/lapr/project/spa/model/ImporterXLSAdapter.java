@@ -6,17 +6,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import lapr.project.spa.utils.Constants;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 
-
-
 public class ImporterXLSAdapter implements ServiceOrderImporter {
-
-    private static int NUMBER_OF_PARAMS = 6;
+    
     /**
      * Method Imports Orders from XLS file inspired from : https://www.callicoder.com/java-read-excel-file-apache-poi/
      * @param filePath
@@ -33,22 +31,20 @@ public class ImporterXLSAdapter implements ServiceOrderImporter {
                 Iterator<Row> rowIterator = sheet.rowIterator();
                 while (rowIterator.hasNext()) {
                     Row row = rowIterator.next();
-                    //validar se a row é valida
                     if(valid(row)) {
                         ServiceOrder importedOrder = new ServiceOrder(
-                                dataFormatter.formatCellValue(row.getCell(0)),
-                                dataFormatter.formatCellValue(row.getCell(1)),
-                                dataFormatter.formatCellValue(row.getCell(2)),
-                                dataFormatter.formatCellValue(row.getCell(3)),
-                                dataFormatter.formatCellValue(row.getCell(4)),
-                                dataFormatter.formatCellValue(row.getCell(5)));
+                                dataFormatter.formatCellValue(row.getCell(Constants.IMPORT_NAME)),
+                                dataFormatter.formatCellValue(row.getCell(Constants.IMPORT_EMAIL)),
+                                dataFormatter.formatCellValue(row.getCell(Constants.IMPORT_SCHEDULE_PREFERENCE_DAY)),
+                                dataFormatter.formatCellValue(row.getCell(Constants.IMPORT_SCHEDULE_PREFERENCE_TIME)),
+                                dataFormatter.formatCellValue(row.getCell(Constants.IMPORT_CATEGORY)),
+                                dataFormatter.formatCellValue(row.getCell(Constants.IMPORT_SERVICE)));
                         importedServiceOrders.add(importedOrder);
                     }
                 }
                 return importedServiceOrders;
             }
         } catch (IOException ex) {
-            ex.printStackTrace();
             return null;
         }
         
@@ -59,7 +55,7 @@ public class ImporterXLSAdapter implements ServiceOrderImporter {
      * @return true if valid
      */
     public boolean valid(Row row) {
-        return row.getLastCellNum()==NUMBER_OF_PARAMS;
+        return row.getLastCellNum()==Constants.NR_IMPORT_ATTRIBUTES;
     }
     
     
