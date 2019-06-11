@@ -5,7 +5,6 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Properties;
 import lapr.project.spa.model.Company;
-import lapr.project.spa.model.ImportType;
 
 public class ApplicationSP {
 

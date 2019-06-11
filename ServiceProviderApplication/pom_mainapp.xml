@@ -166,14 +166,14 @@
                         <param>lapr.project.utils.*</param>
                     </inScopeClasses>-->
                     <targetClasses>
-                        <param>lapr.project.spa.model.*</param>
-                        <param>lapr.project.spa.utils.*</param>
-                        <param>lapr.project.spa.controller.*</param>
+                        <param>lapr.project.gpsd.model.*</param>
+                        <param>lapr.project.gpsd.utils.*</param>
+                        <param>lapr.project.gpsd.controller.*</param>
                     </targetClasses>
                     <targetTests>
-                        <param>lapr.project.spa.model.*</param>
-                        <param>lapr.project.spa.utils.*</param>
-                        <param>lapr.project.spa.controller.*</param>
+                        <param>lapr.project.gpsd.model.*</param>
+                        <param>lapr.project.gpsd.utils.*</param>
+                        <param>lapr.project.gpsd.controller.*</param>
                     </targetTests>
                     <outputFormats>
                         <outputFormat>XML</outputFormat>
