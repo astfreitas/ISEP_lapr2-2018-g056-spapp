@@ -25,17 +25,27 @@ public class ImporterXMLAdapter implements ServiceOrderImporter {
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
             Document document = documentBuilder.parse(file);
-            Node node = document.getElementsByTagName("root").item(0);
+            document.getDocumentElement().normalize();
+            Node node = document.getDocumentElement();
             NodeList nodeList = node.getChildNodes();
+            System.out.println(">> " + nodeList.getLength());
             for (int i = 0; i < nodeList.getLength(); i++) {
-                String name = document.getElementsByTagName(Constants.PARAMS_NAME).item(i).getTextContent();
-                String email = document.getElementsByTagName(Constants.PARAMS_EMAIL).item(i).getTextContent();
-                String schedPrefDay = document.getElementsByTagName(Constants.PARAMS_SCHEDULE_PREFERENCE_DAY).item(i).getTextContent();
-                String schePrefTime = document.getElementsByTagName(Constants.PARAMS_SCHEDULE_PREFERENCE_TIME).item(i).getTextContent();
-                String category = document.getElementsByTagName(Constants.PARAMS_CATEGORY).item(i).getTextContent();
-                String service = document.getElementsByTagName(Constants.PARAMS_SERVICE).item(i).getTextContent();
-                ServiceOrder servOrder = new ServiceOrder(name, email, schedPrefDay, schePrefTime, category, service);
-                sOrders.add(servOrder);
+                try {
+                    String name = document.getElementsByTagName(Constants.PARAMS_NAME).item(i).getTextContent();
+                    String email = document.getElementsByTagName(Constants.PARAMS_EMAIL).item(i).getTextContent();
+                    String schedPrefDay = document.getElementsByTagName(Constants.PARAMS_SCHEDULE_PREFERENCE_DAY).item(i).getTextContent();
+                    String schedPrefTime = document.getElementsByTagName(Constants.PARAMS_SCHEDULE_PREFERENCE_TIME).item(i).getTextContent();
+                    String category = document.getElementsByTagName(Constants.PARAMS_CATEGORY).item(i).getTextContent();
+                    String service = document.getElementsByTagName(Constants.PARAMS_SERVICE).item(i).getTextContent();
+                    try {
+                        ServiceOrder servOrder = new ServiceOrder(name, email, schedPrefDay, schedPrefTime, category, service);
+                        sOrders.add(servOrder);
+                    } catch (Exception e) {
+                        System.out.println("Import error : " + e.getMessage());
+                    }
+                } catch (Exception e) {
+                    System.out.println("Invalid XML Format.");
+                }
             }
             return sOrders;
         } catch (ParserConfigurationException | SAXException | IOException ex) {
@@ -43,7 +53,6 @@ public class ImporterXMLAdapter implements ServiceOrderImporter {
         }
         return null;
     }
-
     @Override
     public String toString() {
         return "XML Adapter";

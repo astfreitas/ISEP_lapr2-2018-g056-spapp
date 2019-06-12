@@ -8,8 +8,8 @@ public class ServiceOrder {
     private final String email;
     private final String schedPrefDayStr;
     private final LocalDate schedPrefDay;
-    private final String schePrefTimeStr;
-    private final LocalTime schePrefTime;
+    private final String schedPrefTimeStr;
+    private final LocalTime schedPrefTime;
     private final String category;
     private final String service;
 
@@ -18,17 +18,17 @@ public class ServiceOrder {
      * @param name
      * @param email
      * @param schedPrefDayStr
-     * @param schePrefTimeStr
+     * @param schedPrefTimeStr
      * @param category
      * @param service 
      */
-    public ServiceOrder(String name, String email, String schedPrefDayStr, String schePrefTimeStr, String category, String service) {
+    public ServiceOrder(String name, String email, String schedPrefDayStr, String schedPrefTimeStr, String category, String service) {
         this.name = name;
         this.email = email;
         this.schedPrefDayStr = schedPrefDayStr;
-        this.schePrefTimeStr = schePrefTimeStr;
-        this.schedPrefDay = LocalDate.now();//parse(schedPrefDay);
-        this.schePrefTime = LocalTime.now();//parse(schePrefTime);
+        this.schedPrefTimeStr = schedPrefTimeStr;
+        this.schedPrefDay = LocalDate.parse(schedPrefDayStr);
+        this.schedPrefTime = LocalTime.parse(schedPrefTimeStr);        
         this.category = category;
         this.service = service;
     }
@@ -75,7 +75,7 @@ public class ServiceOrder {
      * @return instance of LocalTime when then date occurs.
      */
     public LocalTime getSchePrefTime() {
-        return schePrefTime;
+        return schedPrefTime;
     }
     
     
@@ -101,7 +101,7 @@ public class ServiceOrder {
 
     @Override
     public String toString() {
-        return "ServiceOrder{" + "name=" + name + ", email=" + email + ", schedPrefDay=" + schedPrefDay + ", schePrefTime=" + schePrefTime + ", category=" + category + ", service=" + service + '}';
+        return "ServiceOrder{" + "name=" + name + ", email=" + email + ", schedPrefDay=" + schedPrefDay + ", schedPrefTime=" + schedPrefTime + ", category=" + category + ", service=" + service + '}';
     }
     
     
@@ -110,7 +110,7 @@ public class ServiceOrder {
      * @return 
      */
     public String getPropertyDayTime() {
-        return schedPrefDayStr + " " + schePrefTimeStr;
+        return schedPrefDayStr + " " + schedPrefTimeStr;
     }
     
     /**
