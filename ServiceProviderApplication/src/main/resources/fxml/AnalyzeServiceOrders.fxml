@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lapr.project.spa.ui.AnalyzeServiceOrdersUI1">
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Analyze Execution Orders">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <TableView prefHeight="325.0" prefWidth="200.0">
+              <columns>
+                <TableColumn fx:id="nameCollumn" prefWidth="75.0" text="Name" />
+                <TableColumn fx:id="emailCollumn" prefWidth="75.0" text="Email" />
+                  <TableColumn fx:id="dateCollumn" prefWidth="75.0" text="Date" />
+                  <TableColumn fx:id="timeCollumn" prefWidth="75.0" text="Time" />
+                  <TableColumn fx:id="catCollumn" prefWidth="75.0" text="Category" />
+                  <TableColumn fx:id="serviceCollumn" prefWidth="75.0" text="Service" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
