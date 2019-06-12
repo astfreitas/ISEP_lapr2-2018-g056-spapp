@@ -28,6 +28,8 @@ public class AnalyseServiceOrdersUI {
         try {
             AnalyzeServiceOrdersUI1 analyzeServiceOrdersUI1 = (AnalyzeServiceOrdersUI1) this.mainApp.replaceSceneContent("/fxml/AnalyzeServiceOrders.fxml");
             analyzeServiceOrdersUI1.setAnalyseServiceOrdersUI(this);
+            analyzeServiceOrdersUI1.setupAnalyseServiceOrderTable();
+            
         } catch (Exception e) {
         }
     }

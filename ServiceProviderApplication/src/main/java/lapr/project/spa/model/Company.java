@@ -5,7 +5,7 @@ public class Company {
     private final String designation;
     private final String NIF;
     private final ImportTypeRegistry importTypeRegistry;
-    private final ServiceOrderRegistry serviceOrderRegistry;
+    private ServiceOrderRegistry serviceOrderRegistry;
     
     /**
      * Constructor initializes company constructor and stores Company information
@@ -40,6 +40,13 @@ public class Company {
     public ServiceOrderRegistry getServiceOrderRegistry() {
         return serviceOrderRegistry;
     }
-
+    
+    /**
+     * Sets the instance for service order registry
+     */
+    public void setServiceOrderRegistry(ServiceOrderRegistry serviceOrderRegistry){
+        this.serviceOrderRegistry = serviceOrderRegistry;
+        
+    }
     
 }

@@ -73,7 +73,8 @@ public class ImportServiceOrdersUI1 implements Initializable {
     private void handleImportBtn(ActionEvent event) {
         try {
             this.importServiceOrdersUI.getController().importOrders(filePathText.getText());
-            UIUtils.createAlert("File was imported with success", "Success", Alert.AlertType.INFORMATION);
+            UIUtils.createAlertWait("File was imported with success", "Success", Alert.AlertType.INFORMATION);
+            this.importServiceOrdersUI.getMainApp().toMainScene();
         } catch (Exception e) {
             UIUtils.createAlert(e.getMessage(), "File Import Error", Alert.AlertType.ERROR);
         }

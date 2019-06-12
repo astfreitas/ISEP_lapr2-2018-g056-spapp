@@ -1,8 +1,9 @@
 package lapr.project.spa.model;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class ServiceOrder {
+public class ServiceOrder implements Serializable{
 
     private final String name;
     private final String email;
@@ -127,5 +128,20 @@ public class ServiceOrder {
      */
     public String getPropertyService() {
         return service;
+    }
+    
+    /**
+     * Returns the property name by String
+     * @return property name by String
+     */
+    public String getPropertyName(){
+        return name;
+    }
+    /**
+     * Returns the property email by String
+     * @return property name by String
+     */
+    public String getPropertyEmail(){
+        return email;
     }
 }

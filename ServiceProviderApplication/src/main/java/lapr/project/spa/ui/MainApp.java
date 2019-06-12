@@ -15,6 +15,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import lapr.project.spa.controller.ApplicationSP;
+import lapr.project.spa.utils.SaveSession;
 
 
 public class MainApp extends Application {
@@ -33,6 +34,8 @@ public class MainApp extends Application {
         this.stage.setMinWidth(MINIMUM_WINDOW_WIDTH);
         this.stage.setMinHeight(MINIMUM_WINDOW_HEIGHT);
         toMainScene();
+        ApplicationSP app= ApplicationSP.getInstance();
+        SaveSession.importServiceOrdersBinary(app.getCompany());  
         this.stage.setOnCloseRequest(new javafx.event.EventHandler<WindowEvent>() {
                 @Override
                 public void handle(WindowEvent event) {
@@ -44,29 +47,28 @@ public class MainApp extends Application {
 
                     if (alert.showAndWait().get() == ButtonType.CANCEL) {
                         event.consume();
+                    } else {
+                        SaveSession.saveServiceOrdersBinary(app.getCompany());
                     }
                 }
             });
-        this.stage.show();
-        ApplicationSP.getInstance();
-        
-//        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml"));
-//        
-//        Scene scene = new Scene(root);
-//        scene.getStylesheets().add("/styles/Styles.css");
-//        
-//        stage.setTitle("JavaFX and Maven");
-//        stage.setScene(scene);
-//        stage.show();
-//        
-//        ApplicationSP.getInstance();
-        
+        this.stage.show();              
     }
     
+    /**
+     * Returns the stage for the fxml 
+     * @return stage
+     */
     public Stage getStage(){
         return this.stage;
     }
     
+    /**
+     * Replaces the scene content with the given fxml file path
+     * @param fxml fxml file path
+     * @return initalizable 
+     * @throws Exception throws an exception
+     */
     public Initializable replaceSceneContent(String fxml) throws Exception {
         FXMLLoader loader = new FXMLLoader();
         InputStream in = MainApp.class.getResourceAsStream(fxml);
@@ -84,7 +86,9 @@ public class MainApp extends Application {
         return (Initializable) loader.getController();
     }
     
-    
+    /**
+     * Sets the scene back to the main Menu for SP
+     */
     public void toMainScene(){
         try {
             MainMenuUI mainMenuUI = (MainMenuUI) replaceSceneContent("/fxml/MainMenuSP.fxml");

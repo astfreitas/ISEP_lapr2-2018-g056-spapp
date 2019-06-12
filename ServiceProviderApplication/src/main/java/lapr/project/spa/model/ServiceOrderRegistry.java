@@ -1,9 +1,10 @@
 package lapr.project.spa.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ServiceOrderRegistry {
+public class ServiceOrderRegistry implements Serializable{
 
     private List<ServiceOrder> serviceOrders;
 
@@ -41,7 +42,7 @@ public class ServiceOrderRegistry {
      * @return true if the operation was a success.
      */
     private boolean addServiceOrder(ServiceOrder serOrder) {
-        return serviceOrders.add(serOrder);
+        return this.serviceOrders.add(serOrder);
     }
 
     /**
@@ -49,7 +50,7 @@ public class ServiceOrderRegistry {
      * @return ServiceOrder list
      */
     public List<ServiceOrder> getServiceOrders() {
-        return serviceOrders;
+        return this.serviceOrders;
     }
     
     /**
@@ -86,6 +87,16 @@ public class ServiceOrderRegistry {
         }
         return serviceOrdersCltEmails;
     }
+    
+    /**
+     * Returns String description for the Service Order List
+     * @return String description for the Service Order List
+     */
+    @Override
+    public String toString() {
+        return "ServiceOrderRegistry{" + "serviceOrders=" + serviceOrders + '}';
+    }
+    
     
 
 }

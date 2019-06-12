@@ -19,16 +19,21 @@ public class AnalyseServiceOrdersController {
     
     private Company company;
     
+    private ServiceOrderRegistry servOrderReg;
+    
+    
     private List<ServiceOrder> servOrdersList = new ArrayList();
     
     public AnalyseServiceOrdersController(){
+        servOrderReg = ApplicationSP.getInstance().getCompany().getServiceOrderRegistry();
+        
         //ToDo: Check authentication? vs check SP logged
         // this.company ToDo: need to check how to obtain company
     }
     
     public List<ServiceOrder> getServiceOrders(){
-        ServiceOrderRegistry servOrdersReg = company.getServiceOrderRegistry();
-        return servOrdersReg.getServiceOrders();
+        servOrdersList = servOrderReg.getServiceOrders();
+        return servOrdersList;
     }
     
 }

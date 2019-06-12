@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -31,10 +32,19 @@
       </MenuBar>
    </top>
    <center>
-      <ImageView fitHeight="200.0" fitWidth="400.0" BorderPane.alignment="CENTER">
-         <image>
-            <Image url="@../files/logo.png" />
-         </image>
-      </ImageView>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Service Provider Application">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="200.0" fitWidth="400.0">
+               <image>
+                  <Image url="@../files/logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
    </center>
 </BorderPane>

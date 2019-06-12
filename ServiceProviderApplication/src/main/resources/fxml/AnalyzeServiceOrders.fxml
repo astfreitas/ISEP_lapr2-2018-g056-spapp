@@ -21,20 +21,20 @@
                   </Text>
                </children>
             </HBox>
-            <TableView prefHeight="300.0" prefWidth="600.0">
+            <TableView fx:id="servOrderTable" prefHeight="300.0" prefWidth="600.0">
               <columns>
-                <TableColumn fx:id="nameCollumn" maxWidth="150.0" prefWidth="75.0" text="Name" />
+                <TableColumn fx:id="nameCollumn" maxWidth="150.0" prefWidth="100.0" text="Name" />
                 <TableColumn fx:id="emailCollumn" maxWidth="100.0" prefWidth="75.0" text="Email" />
                   <TableColumn fx:id="dateTimeCollumn" maxWidth="100.0" prefWidth="100.0" text="Date &amp; Time" />
                   <TableColumn fx:id="catCollumn" maxWidth="100.0" prefWidth="75.0" text="Category" />
-                  <TableColumn fx:id="serviceCollumn" maxWidth="300.0" prefWidth="75.0" text="Service" />
+                  <TableColumn fx:id="serviceCollumn" maxWidth="300.0" prefWidth="200.0" text="Service" />
               </columns>
             </TableView>
          </children>
       </VBox>
    </center>
    <bottom>
-      <Button fx:id="mainMenuBtn" alignment="CENTER" mnemonicParsing="false" onAction="#handlemainMenuBtn" text="Main Menu" BorderPane.alignment="CENTER">
+      <Button fx:id="mainMenuBtn" alignment="CENTER" mnemonicParsing="false" onAction="#handlemainMenuBtn" text="Back to Main Menu" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="10.0" />
          </BorderPane.margin>

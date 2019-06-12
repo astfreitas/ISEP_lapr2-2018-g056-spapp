@@ -16,7 +16,7 @@ public class Constants {
     public static final int NR_IMPORT_ATTRIBUTES = 6;
     public static final String PARAMS_NAME = "name";
     public static final int IMPORT_NAME = 0;
-    public static final String PARAMS_EMAIL = "name";
+    public static final String PARAMS_EMAIL = "email";
     public static final int IMPORT_EMAIL = 1;
     public static final String PARAMS_SCHEDULE_PREFERENCE_DAY = "schedPrefDayStr";
     public static final int IMPORT_SCHEDULE_PREFERENCE_DAY = 2;
