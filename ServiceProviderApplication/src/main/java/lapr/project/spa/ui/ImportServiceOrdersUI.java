@@ -32,6 +32,7 @@ public class ImportServiceOrdersUI {
     public void toApplicationScene1(){
         try {
             ImportServiceOrdersUI1 importServiceOrdersUI1 = (ImportServiceOrdersUI1) this.mainApp.replaceSceneContent("/fxml/ImportServiceOrders.fxml");
+            importServiceOrdersUI1.setImportServiceOrdersUI(this);
             
         } catch (Exception e) {
         }
