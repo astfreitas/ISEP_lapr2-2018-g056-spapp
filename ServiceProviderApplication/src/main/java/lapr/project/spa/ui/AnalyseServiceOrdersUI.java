@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package lapr.project.spa.ui;
 
 import lapr.project.spa.controller.AnalyseServiceOrdersController;
@@ -15,9 +10,6 @@ public class AnalyseServiceOrdersUI {
     
     private MainApp mainApp;
     private AnalyseServiceOrdersController controller;
-
-    public AnalyseServiceOrdersUI() {
-    }
 
     public AnalyseServiceOrdersUI(MainApp mainApp) {
         this.mainApp = mainApp;
