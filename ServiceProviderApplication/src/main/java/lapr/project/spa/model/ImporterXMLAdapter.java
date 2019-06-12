@@ -44,6 +44,7 @@ public class ImporterXMLAdapter implements ServiceOrderImporter {
                         System.out.println("Import error : " + e.getMessage());
                     }
                 } catch (Exception e) {
+                    System.out.println("... invalid xml");
                     System.out.println("Invalid XML Format.");
                 }
             }

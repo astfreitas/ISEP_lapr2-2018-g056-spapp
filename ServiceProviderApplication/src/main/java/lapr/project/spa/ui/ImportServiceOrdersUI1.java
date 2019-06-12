@@ -60,7 +60,7 @@ public class ImportServiceOrdersUI1 implements Initializable {
 
         if (selectedFile != null) {
 
-            filePathText.setText(selectedFile.getName());
+            filePathText.setText(selectedFile.getAbsolutePath());
         } else {
             filePathText.setText("No file was selected.");
         }
@@ -69,6 +69,7 @@ public class ImportServiceOrdersUI1 implements Initializable {
 
     @FXML
     private void handleImportBtn(ActionEvent event) {
+        this.importServiceOrdersUI.getController().importOrders(filePathText.getText());
     }
 
 }
