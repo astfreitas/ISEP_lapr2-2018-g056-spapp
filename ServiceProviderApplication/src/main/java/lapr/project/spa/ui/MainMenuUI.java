@@ -5,15 +5,18 @@
  */
 package lapr.project.spa.ui;
 
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.MenuItem;
 
 /**
  *
  * @author astfr
  */
-public class MainMenuUI {
+public class MainMenuUI implements Initializable{
     private MainApp mainApp;
     
     @FXML
@@ -45,6 +48,11 @@ public class MainMenuUI {
     
     public void setMainApp(MainApp mainApp){
         this.mainApp = mainApp;
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        
     }
     
 }
