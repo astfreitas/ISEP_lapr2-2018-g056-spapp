@@ -1,5 +1,6 @@
 package lapr.project.spa.controller;
 
+import java.io.FileNotFoundException;
 import lapr.project.spa.model.Company;
 import lapr.project.spa.model.ImportType;
 import lapr.project.spa.model.ImportTypeRegistry;
@@ -28,7 +29,7 @@ public class ImportServiceOrdersController {
             ServiceOrderRegistry serviceOrderRegistry = company.getServiceOrderRegistry();
             serviceOrderRegistry.importData(filePath, serviceOrderImporter);
         } else {
-             throw new IllegalArgumentException("Import type not Supported.");
+             throw new IllegalArgumentException("File not found or file type not Supported.");
         }
         
     }

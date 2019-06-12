@@ -27,15 +27,13 @@ public class AnalyzeServiceOrdersUI1 implements Initializable {
     @FXML
     private TableColumn<?, ?> emailCollumn;
     @FXML
-    private TableColumn<?, ?> dateCollumn;
-    @FXML
-    private TableColumn<?, ?> timeCollumn;
-    @FXML
     private TableColumn<?, ?> catCollumn;
     @FXML
     private TableColumn<?, ?> serviceCollumn;
     @FXML
     private Button mainMenuBtn;
+    @FXML
+    private TableColumn<?, ?> dateTimeCollumn;
 
     /**
      * Initializes the controller class.

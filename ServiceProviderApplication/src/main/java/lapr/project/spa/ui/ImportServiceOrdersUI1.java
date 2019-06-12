@@ -11,10 +11,12 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import lapr.project.spa.controller.ImportServiceOrdersController;
+import lapr.project.spa.utils.UIUtils;
 
 /**
  * FXML Controller class
@@ -69,7 +71,13 @@ public class ImportServiceOrdersUI1 implements Initializable {
 
     @FXML
     private void handleImportBtn(ActionEvent event) {
-        this.importServiceOrdersUI.getController().importOrders(filePathText.getText());
+        try {
+            this.importServiceOrdersUI.getController().importOrders(filePathText.getText());
+            UIUtils.createAlert("File was imported with success", "Success", Alert.AlertType.INFORMATION);
+        } catch (Exception e) {
+            UIUtils.createAlert(e.getMessage(), "File Import Error", Alert.AlertType.ERROR);
+        }
+        
     }
 
 }

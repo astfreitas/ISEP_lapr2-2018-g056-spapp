@@ -25,8 +25,7 @@
               <columns>
                 <TableColumn fx:id="nameCollumn" maxWidth="150.0" prefWidth="75.0" text="Name" />
                 <TableColumn fx:id="emailCollumn" maxWidth="100.0" prefWidth="75.0" text="Email" />
-                  <TableColumn fx:id="dateCollumn" maxWidth="100.0" prefWidth="75.0" text="Date" />
-                  <TableColumn fx:id="timeCollumn" maxWidth="100.0" prefWidth="75.0" text="Time" />
+                  <TableColumn fx:id="dateTimeCollumn" maxWidth="100.0" prefWidth="100.0" text="Date &amp; Time" />
                   <TableColumn fx:id="catCollumn" maxWidth="100.0" prefWidth="75.0" text="Category" />
                   <TableColumn fx:id="serviceCollumn" maxWidth="300.0" prefWidth="75.0" text="Service" />
               </columns>
