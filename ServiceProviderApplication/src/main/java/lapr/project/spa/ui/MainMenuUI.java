@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
+import lapr.project.spa.utils.UIUtils;
 
 /**
  *
@@ -44,10 +45,13 @@ public class MainMenuUI implements Initializable{
 
     @FXML
     private void handleAnalyzeCliTimeLineBtn(ActionEvent event) {
+        AnalyzeClientTimelineUI analyzeClientTimelineUI = new AnalyzeClientTimelineUI(this.mainApp);
+        analyzeClientTimelineUI.toApplicationScene1();
     }
 
     @FXML
     private void handleAboutBtn(ActionEvent event) {
+        UIUtils.about();
     }
     
     public void setMainApp(MainApp mainApp){

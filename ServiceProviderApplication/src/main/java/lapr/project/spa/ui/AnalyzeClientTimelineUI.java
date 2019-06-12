@@ -4,7 +4,9 @@ import lapr.project.spa.controller.AnalyzeClientTimelineController;
 
 
 public class AnalyzeClientTimelineUI {
+    
     private MainApp mainApp;
+    
     private AnalyzeClientTimelineController controller;
 
     public AnalyzeClientTimelineUI(MainApp mainApp) {
