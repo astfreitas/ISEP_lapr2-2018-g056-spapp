@@ -76,6 +76,16 @@ public class ServiceOrderRegistry {
         }
         return clientOders;
     }
+
+    public List<String> getServiceOrdersClientEmails() {
+        List<String> serviceOrdersCltEmails = new ArrayList();        
+        for(ServiceOrder so : serviceOrders) {
+            if(!serviceOrdersCltEmails.contains(so.getEmail())){
+                serviceOrdersCltEmails.add(so.getEmail());
+            }
+        }
+        return serviceOrdersCltEmails;
+    }
     
 
 }

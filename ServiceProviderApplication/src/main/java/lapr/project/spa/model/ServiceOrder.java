@@ -104,4 +104,28 @@ public class ServiceOrder {
         return "ServiceOrder{" + "name=" + name + ", email=" + email + ", schedPrefDay=" + schedPrefDay + ", schePrefTime=" + schePrefTime + ", category=" + category + ", service=" + service + '}';
     }
     
+    
+    /**
+     * Property propertyDayTime
+     * @return 
+     */
+    public String getPropertyDayTime() {
+        return schedPrefDayStr + " " + schePrefTimeStr;
+    }
+    
+    /**
+     * Property propertyCategory
+     * @return 
+     */
+    public String getPropertyCategory() {
+        return category;
+    }
+    
+    /**
+     * Property propertyService
+     * @return 
+     */
+    public String getPropertyService() {
+        return service;
+    }
 }
