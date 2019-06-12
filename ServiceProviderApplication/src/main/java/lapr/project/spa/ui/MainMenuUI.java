@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.MenuItem;
+import javafx.stage.Stage;
 
 /**
  *
@@ -18,6 +19,7 @@ import javafx.scene.control.MenuItem;
  */
 public class MainMenuUI implements Initializable{
     private MainApp mainApp;
+    private Stage stage;
     
     @FXML
     private MenuItem importServOrdersBtn;
@@ -30,6 +32,8 @@ public class MainMenuUI implements Initializable{
 
     @FXML
     private void handleImportServOrdersBtn(ActionEvent event) {
+        ImportServiceOrdersUI importServiceOrdersUI = new ImportServiceOrdersUI(this.mainApp);
+        importServiceOrdersUI.toApplicationScene1();
     }
 
     @FXML

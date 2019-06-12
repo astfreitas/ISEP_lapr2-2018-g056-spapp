@@ -7,8 +7,10 @@ package lapr.project.spa.ui;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 
 /**
@@ -32,6 +34,8 @@ public class AnalyzeServiceOrdersUI1 implements Initializable {
     private TableColumn<?, ?> catCollumn;
     @FXML
     private TableColumn<?, ?> serviceCollumn;
+    @FXML
+    private Button mainMenuBtn;
 
     /**
      * Initializes the controller class.
@@ -43,6 +47,11 @@ public class AnalyzeServiceOrdersUI1 implements Initializable {
 
     public void setAnalyseServiceOrdersUI(AnalyseServiceOrdersUI analyseServiceOrdersUI) {
         this.analyseServiceOrdersUI = analyseServiceOrdersUI;
+    }
+
+    @FXML
+    private void handlemainMenuBtn(ActionEvent event) {
+        this.analyseServiceOrdersUI.getMainApp().toMainScene();
     }
     
     
