@@ -18,7 +18,12 @@ public class UIUtils {
         alert.setContentText(message);
         alert.show();
     }
-    
+    /**
+     * Creats and alert based on the given data from the parameters
+     * @param message Alert message
+     * @param header Alert header
+     * @param alertType Type of Alert
+     */
     public static void createAlertWait(String message, String header, Alert.AlertType alertType) {
         Alert alert = new Alert(alertType);
         alert.setHeaderText(header);
