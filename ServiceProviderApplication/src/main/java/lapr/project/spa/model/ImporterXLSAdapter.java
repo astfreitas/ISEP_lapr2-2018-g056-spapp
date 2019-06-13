@@ -30,6 +30,7 @@ public class ImporterXLSAdapter implements ServiceOrderImporter {
                 DataFormatter dataFormatter = new DataFormatter();
                 Iterator<Row> rowIterator = sheet.rowIterator();
                 while (rowIterator.hasNext()) {
+                    rowIterator.next();
                     Row row = rowIterator.next();
                     if(valid(row)) {
                         ServiceOrder importedOrder = new ServiceOrder(

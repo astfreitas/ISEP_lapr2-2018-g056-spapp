@@ -35,7 +35,7 @@ public class MainApp extends Application {
         this.stage.setMinHeight(MINIMUM_WINDOW_HEIGHT);
         toMainScene();
         ApplicationSP app= ApplicationSP.getInstance();
-        SaveSession.importServiceOrdersBinary(app.getCompany());  
+        
         this.stage.setOnCloseRequest(new javafx.event.EventHandler<WindowEvent>() {
                 @Override
                 public void handle(WindowEvent event) {
@@ -52,7 +52,8 @@ public class MainApp extends Application {
                     }
                 }
             });
-        this.stage.show();              
+        this.stage.show();     
+        SaveSession.importServiceOrdersBinary(app.getCompany());  
     }
     
     /**
