@@ -30,6 +30,7 @@ public class ImporterCSVAdapter implements ServiceOrderImporter {
             Reader reader = Files.newBufferedReader(Paths.get(filePath));
             CSVReader csvReader = new CSVReaderBuilder(reader).build();
         ) {
+            csvReader.readNext();
             String[] nextRecord;
             while ((nextRecord = csvReader.readNext()) != null) {
                 if(valid(nextRecord)) {
@@ -39,7 +40,6 @@ public class ImporterCSVAdapter implements ServiceOrderImporter {
                             nextRecord[Constants.IMPORT_SCHEDULE_PREFERENCE_TIME], 
                             nextRecord[Constants.IMPORT_CATEGORY], 
                             nextRecord[Constants.IMPORT_SERVICE]); 
-                    System.out.println(iServOrd);
                     importedServiceOrders.add(iServOrd);
                 }
             }
