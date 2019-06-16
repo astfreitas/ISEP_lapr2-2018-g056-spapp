@@ -2,6 +2,7 @@ package lapr.project.spa.controller;
 
 import lapr.project.spa.utils.Constants;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 import lapr.project.spa.model.Company;
@@ -57,13 +58,21 @@ public class ApplicationSP {
         props.setProperty(Constants.PARAMS_COMPANY_NIF, "Default NIF");
 
         // reads properties and values from the config file
+//        try {
+//            InputStream in = new FileInputStream(Constants.PARAMS_FILE);
+//            props.load(in);
+//            in.close();
+//        } catch (Exception ex) {
+//            ex.printStackTrace();
+//        }
+        // Read the file
         try {
-            InputStream in = new FileInputStream(Constants.PARAMS_FILE);
-            props.load(in);
-            in.close();
-        } catch (Exception ex) {
-            ex.printStackTrace();
+            try (InputStream in = this.getClass().getClassLoader().getResourceAsStream(Constants.PARAMS_FILE)) {
+                props.load(in);
+            }
+        } catch (IOException ex) {
         }
+        
         return props;
     }
 
