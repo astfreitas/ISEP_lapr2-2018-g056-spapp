@@ -4,6 +4,7 @@ package lapr.project.spa.utils;
 public class Constants {
     
     public static final String PARAMS_FILE = "config.properties";
+    public static final String PARAMS_FILE_STATE = "state.bin";
     public static final String PARAMS_COMPANY_DESIGNATION = "Company.Designation";
     public static final String PARAMS_COMPANY_NIF = "Company.NIF";
     

@@ -29,12 +29,11 @@ public class SaveSession {
      */
     public static void saveServiceOrdersBinary(Company company) {
         try {
-            File file = new File("src/main/resources/backup/savedsession.bin");
+            File file = new File(Constants.PARAMS_FILE_STATE);
             file.delete();
-
             ServiceOrderRegistry servOrderReg = company.getServiceOrderRegistry();
             FileOutputStream ficheiroBinario = null;
-            ficheiroBinario = new FileOutputStream("src/main/resources/backup/savedsession.bin");
+            ficheiroBinario = new FileOutputStream(Constants.PARAMS_FILE_STATE);
             ObjectOutputStream out = new ObjectOutputStream(ficheiroBinario);
             out.writeObject(servOrderReg);
             ficheiroBinario.close();
@@ -56,7 +55,7 @@ public class SaveSession {
     public static void importServiceOrdersBinary(Company company) {
         try {
             FileInputStream binaryFile = null;
-            binaryFile = new FileInputStream("src/main/resources/backup/savedsession.bin");
+            binaryFile = new FileInputStream(Constants.PARAMS_FILE_STATE);
             ObjectInputStream in = new ObjectInputStream(binaryFile);
             ServiceOrderRegistry servOrderReg
                     = (ServiceOrderRegistry) in.readObject();
