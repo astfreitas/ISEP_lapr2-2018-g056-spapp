@@ -179,11 +179,11 @@ public class ServiceOrder implements Serializable {
         // field comparison
         ServiceOrder so = (ServiceOrder) otherServiceOrder;
         return (Objects.equals(name, so.name)
-                || Objects.equals(email, so.email)
-                || Objects.equals(schedPrefDayStr, so.schedPrefDayStr)
-                || Objects.equals(schedPrefTimeStr, so.schedPrefTimeStr)
-                || Objects.equals(category, so.category)
-                || Objects.equals(service, so.service));
+                && Objects.equals(email, so.email)
+                && Objects.equals(schedPrefDayStr, so.schedPrefDayStr)
+                && Objects.equals(schedPrefTimeStr, so.schedPrefTimeStr)
+                && Objects.equals(category, so.category)
+                && Objects.equals(service, so.service));
     }
 
 }
