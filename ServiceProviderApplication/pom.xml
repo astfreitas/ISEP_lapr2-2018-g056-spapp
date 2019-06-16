@@ -191,6 +191,7 @@
                 <configuration>
                     <archive>
                         <manifest>
+                            <mainClass>lapr.project.spa.ui.MainApp</mainClass>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
                         </manifest>
