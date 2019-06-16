@@ -1,6 +1,5 @@
 package lapr.project.spa.controller;
 
-import static com.sun.org.apache.bcel.internal.util.SecuritySupport.getResourceAsStream;
 import lapr.project.spa.utils.Constants;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -59,7 +58,7 @@ public class ApplicationSP {
 
         // reads properties and values from the config file
         try {
-            InputStream in = getResourceAsStream(Constants.PARAMS_FILE);
+            InputStream in = new FileInputStream(Constants.PARAMS_FILE);
             props.load(in);
             in.close();
         } catch (Exception ex) {
